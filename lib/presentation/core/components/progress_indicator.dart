@@ -26,6 +26,12 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
     super.initState();
   }
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   Future<void> initAsync() async {
     await Future.delayed(Duration(milliseconds: 350));
 
