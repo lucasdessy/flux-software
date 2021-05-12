@@ -12,7 +12,13 @@ class FluxInfoCard extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50), color: Colors.white),
-      child: Text(text),
+      child: Text(
+        text,
+        style: Theme.of(context)
+            .textTheme
+            .bodyText1
+            ?.copyWith(fontWeight: FontWeight.w700, fontSize: 14),
+      ),
     );
   }
 }
