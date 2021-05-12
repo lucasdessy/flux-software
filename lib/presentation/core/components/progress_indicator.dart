@@ -66,7 +66,7 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
                 height: 200,
                 width: 200,
                 child: CircularProgressIndicator(
-                  strokeWidth: 22,
+                  strokeWidth: 23,
                   value: value,
                   valueColor:
                       AlwaysStoppedAnimation<Color>(Colors.grey.shade300),
