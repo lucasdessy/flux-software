@@ -5,7 +5,6 @@ import 'package:flux_software/domain/core/region.dart';
 import 'package:flux_software/injection.dart';
 import 'package:flux_software/presentation/core/components/separator.dart';
 import 'package:flux_software/util/region_string_formatter.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 class SettingsPage extends StatelessWidget {
   @override
