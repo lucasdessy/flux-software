@@ -10,7 +10,7 @@ part 'settings_event.dart';
 part 'settings_state.dart';
 part 'settings_bloc.freezed.dart';
 
-@injectable
+@singleton
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc() : super(SettingsState.initial());
 
@@ -18,7 +18,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   Stream<SettingsState> mapEventToState(
     SettingsEvent event,
   ) async* {
-    event.map<Stream<SettingsState>>(
+    yield* event.map<Stream<SettingsState>>(
       defineLimit: (e) async* {
         yield state.copyWith(
           settings: state.settings.copyWith(limit: e.limit),

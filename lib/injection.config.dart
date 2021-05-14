@@ -15,6 +15,6 @@ import 'application/bloc/settings_bloc.dart'
 _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
-  gh.factory<_i3.SettingsBloc>(() => _i3.SettingsBloc());
+  gh.singleton<_i3.SettingsBloc>(_i3.SettingsBloc());
   return get;
 }
