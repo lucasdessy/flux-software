@@ -3,4 +3,5 @@ enum Region {
   Nordeste,
   Sudeste,
   Sul,
+  CentroOeste,
 }

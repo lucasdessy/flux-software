@@ -11,6 +11,8 @@ class RegionStringFormatter {
         return 'Sudeste';
       case Region.Sul:
         return 'Sul';
+      case Region.CentroOeste:
+        return 'Centro-Oeste';
     }
   }
 }
