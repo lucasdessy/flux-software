@@ -22,7 +22,10 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
     controller = AnimationController(vsync: this);
     controller.value = 1;
     controller.addListener(listenToController);
-    initAsync();
+    controller.animateTo(
+        (widget.maxValue - widget.currentValue) / widget.maxValue,
+        duration: Duration(milliseconds: 1200),
+        curve: Curves.easeInOut);
     super.initState();
   }
 
@@ -30,15 +33,6 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
   void dispose() {
     controller.dispose();
     super.dispose();
-  }
-
-  Future<void> initAsync() async {
-    await Future.delayed(Duration(milliseconds: 350));
-
-    controller.animateTo(
-        (widget.maxValue - widget.currentValue) / widget.maxValue,
-        duration: Duration(milliseconds: 1200),
-        curve: Curves.easeInOut);
   }
 
   listenToController() {

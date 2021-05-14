@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flux_software/presentation/core/components/history_card.dart';
+import 'package:flux_software/presentation/core/components/separator.dart';
 
 class HistoryPage extends StatelessWidget {
   @override
@@ -120,12 +121,7 @@ class HistoryPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: 6),
-                    width: double.infinity,
-                    height: 1,
-                    color: Colors.black,
-                  ),
+                  FluxSeparator(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
