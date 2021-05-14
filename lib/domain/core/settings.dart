@@ -5,7 +5,7 @@ part 'settings.freezed.dart';
 
 @immutable
 @freezed
-abstract class Settings with _$Settings {
+class Settings with _$Settings {
   const factory Settings({required Region region, required int limit}) =
       _Settings;
 
