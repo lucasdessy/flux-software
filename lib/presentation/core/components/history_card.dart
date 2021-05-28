@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'expansion_tile_flux.dart';
+
 class HistoryCard extends StatelessWidget {
   final List<Widget> children;
-  HistoryCard({Key? key, required this.children}) : super(key: key);
+  final List<Widget> header;
+  HistoryCard({
+    Key? key,
+    required this.children,
+    required this.header,
+  });
+
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -13,10 +21,15 @@ class HistoryCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.grey.shade300,
             borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: ExpansionTileFlux(
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: header,
+          ),
           children: children,
+          tilePadding: EdgeInsets.zero,
+          childrenPadding: EdgeInsets.zero,
         ),
       ),
     );
