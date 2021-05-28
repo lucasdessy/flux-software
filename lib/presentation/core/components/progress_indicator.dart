@@ -17,16 +17,25 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
     with SingleTickerProviderStateMixin {
   late final AnimationController controller;
   double value = 1;
+  bool doneAnimating = false;
   @override
   void initState() {
     controller = AnimationController(vsync: this);
     controller.value = 1;
     controller.addListener(listenToController);
-    controller.animateTo(
+    initAsync();
+    super.initState();
+  }
+
+  Future<void> initAsync() async {
+    await controller.animateTo(
         (widget.maxValue - widget.currentValue) / widget.maxValue,
         duration: Duration(milliseconds: 1200),
         curve: Curves.easeInOut);
-    super.initState();
+    setState(() {
+      doneAnimating = true;
+    });
+    print('done animating.');
   }
 
   @override
@@ -76,7 +85,7 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
             Align(
               alignment: Alignment.center,
               child: Text(
-                '${(widget.maxValue - (value * widget.maxValue).toInt())}/${widget.maxValue}',
+                '${doneAnimating ? widget.currentValue : (widget.maxValue - (value * widget.maxValue).toInt())}/${widget.maxValue}',
                 style: Theme.of(context)
                     .textTheme
                     .headline4
