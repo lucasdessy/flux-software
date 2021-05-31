@@ -7,8 +7,10 @@ part 'settings.g.dart';
 @immutable
 @freezed
 class Settings with _$Settings {
-  const factory Settings({required Region region, required int limit}) =
-      _Settings;
+  const factory Settings(
+      {required Region region,
+      required int limit,
+      String? ipAddress}) = _Settings;
 
   factory Settings.initial() => Settings(region: Region.Sudeste, limit: 1600);
 

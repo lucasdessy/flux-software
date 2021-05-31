@@ -32,6 +32,11 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState>
           settings: state.settings.copyWith(region: e.region),
         );
       },
+      setIpAddress: (e) async* {
+        yield state.copyWith(
+          settings: state.settings.copyWith(ipAddress: e.ipAddress),
+        );
+      },
     );
   }
 

@@ -10,6 +10,7 @@ _$_Settings _$_$_SettingsFromJson(Map<String, dynamic> json) {
   return _$_Settings(
     region: _$enumDecode(_$RegionEnumMap, json['region']),
     limit: json['limit'] as int,
+    ipAddress: json['ipAddress'] as String?,
   );
 }
 
@@ -17,6 +18,7 @@ Map<String, dynamic> _$_$_SettingsToJson(_$_Settings instance) =>
     <String, dynamic>{
       'region': _$RegionEnumMap[instance.region],
       'limit': instance.limit,
+      'ipAddress': instance.ipAddress,
     };
 
 K _$enumDecode<K, V>(

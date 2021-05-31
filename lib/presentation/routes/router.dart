@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flux_software/presentation/core/tabs.dart';
+import 'package:flux_software/presentation/pages/connectivity/bluetooth/bluetooth.dart';
+import 'package:flux_software/presentation/pages/connectivity/wifi/wifi.dart';
 
-import 'package:flux_software/presentation/pages/home/home.dart';
-import 'package:flux_software/presentation/routes/routes.dart';
+part 'routes.dart';
 
 class AppRouter {
   static final routes = <String, Widget Function(BuildContext)>{
-    Routes.HOME: (context) => HomePage(),
+    Routes.HOME: (context) => Tabs(),
+    Routes.BLUETOOTH: (context) => BluetoothPage(),
+    Routes.WIFI: (context) => WifiPage(),
   };
 }

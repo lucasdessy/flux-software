@@ -27,6 +27,12 @@ class _$SettingsEventTearOff {
       region,
     );
   }
+
+  _SetIpAddress setIpAddress(String ipAddress) {
+    return _SetIpAddress(
+      ipAddress,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,12 +44,14 @@ mixin _$SettingsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
+    required TResult Function(String ipAddress) setIpAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
+    TResult Function(String ipAddress)? setIpAddress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,12 +59,14 @@ mixin _$SettingsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_DefineLimit value) defineLimit,
     required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_SetIpAddress value) setIpAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DefineLimit value)? defineLimit,
     TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_SetIpAddress value)? setIpAddress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,6 +155,7 @@ class _$_DefineLimit implements _DefineLimit {
   TResult when<TResult extends Object?>({
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
+    required TResult Function(String ipAddress) setIpAddress,
   }) {
     return defineLimit(limit);
   }
@@ -154,6 +165,7 @@ class _$_DefineLimit implements _DefineLimit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
+    TResult Function(String ipAddress)? setIpAddress,
     required TResult orElse(),
   }) {
     if (defineLimit != null) {
@@ -167,6 +179,7 @@ class _$_DefineLimit implements _DefineLimit {
   TResult map<TResult extends Object?>({
     required TResult Function(_DefineLimit value) defineLimit,
     required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_SetIpAddress value) setIpAddress,
   }) {
     return defineLimit(this);
   }
@@ -176,6 +189,7 @@ class _$_DefineLimit implements _DefineLimit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DefineLimit value)? defineLimit,
     TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_SetIpAddress value)? setIpAddress,
     required TResult orElse(),
   }) {
     if (defineLimit != null) {
@@ -261,6 +275,7 @@ class _$_SelectRegion implements _SelectRegion {
   TResult when<TResult extends Object?>({
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
+    required TResult Function(String ipAddress) setIpAddress,
   }) {
     return selectRegion(region);
   }
@@ -270,6 +285,7 @@ class _$_SelectRegion implements _SelectRegion {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
+    TResult Function(String ipAddress)? setIpAddress,
     required TResult orElse(),
   }) {
     if (selectRegion != null) {
@@ -283,6 +299,7 @@ class _$_SelectRegion implements _SelectRegion {
   TResult map<TResult extends Object?>({
     required TResult Function(_DefineLimit value) defineLimit,
     required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_SetIpAddress value) setIpAddress,
   }) {
     return selectRegion(this);
   }
@@ -292,6 +309,7 @@ class _$_SelectRegion implements _SelectRegion {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_DefineLimit value)? defineLimit,
     TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_SetIpAddress value)? setIpAddress,
     required TResult orElse(),
   }) {
     if (selectRegion != null) {
@@ -307,6 +325,127 @@ abstract class _SelectRegion implements SettingsEvent {
   Region get region => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SelectRegionCopyWith<_SelectRegion> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SetIpAddressCopyWith<$Res> {
+  factory _$SetIpAddressCopyWith(
+          _SetIpAddress value, $Res Function(_SetIpAddress) then) =
+      __$SetIpAddressCopyWithImpl<$Res>;
+  $Res call({String ipAddress});
+}
+
+/// @nodoc
+class __$SetIpAddressCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res>
+    implements _$SetIpAddressCopyWith<$Res> {
+  __$SetIpAddressCopyWithImpl(
+      _SetIpAddress _value, $Res Function(_SetIpAddress) _then)
+      : super(_value, (v) => _then(v as _SetIpAddress));
+
+  @override
+  _SetIpAddress get _value => super._value as _SetIpAddress;
+
+  @override
+  $Res call({
+    Object? ipAddress = freezed,
+  }) {
+    return _then(_SetIpAddress(
+      ipAddress == freezed
+          ? _value.ipAddress
+          : ipAddress // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetIpAddress implements _SetIpAddress {
+  const _$_SetIpAddress(this.ipAddress);
+
+  @override
+  final String ipAddress;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.setIpAddress(ipAddress: $ipAddress)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetIpAddress &&
+            (identical(other.ipAddress, ipAddress) ||
+                const DeepCollectionEquality()
+                    .equals(other.ipAddress, ipAddress)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(ipAddress);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetIpAddressCopyWith<_SetIpAddress> get copyWith =>
+      __$SetIpAddressCopyWithImpl<_SetIpAddress>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int limit) defineLimit,
+    required TResult Function(Region region) selectRegion,
+    required TResult Function(String ipAddress) setIpAddress,
+  }) {
+    return setIpAddress(ipAddress);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int limit)? defineLimit,
+    TResult Function(Region region)? selectRegion,
+    TResult Function(String ipAddress)? setIpAddress,
+    required TResult orElse(),
+  }) {
+    if (setIpAddress != null) {
+      return setIpAddress(ipAddress);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DefineLimit value) defineLimit,
+    required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_SetIpAddress value) setIpAddress,
+  }) {
+    return setIpAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DefineLimit value)? defineLimit,
+    TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_SetIpAddress value)? setIpAddress,
+    required TResult orElse(),
+  }) {
+    if (setIpAddress != null) {
+      return setIpAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetIpAddress implements SettingsEvent {
+  const factory _SetIpAddress(String ipAddress) = _$_SetIpAddress;
+
+  String get ipAddress => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetIpAddressCopyWith<_SetIpAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

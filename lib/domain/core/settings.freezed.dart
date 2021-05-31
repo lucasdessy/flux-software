@@ -20,10 +20,12 @@ Settings _$SettingsFromJson(Map<String, dynamic> json) {
 class _$SettingsTearOff {
   const _$SettingsTearOff();
 
-  _Settings call({required Region region, required int limit}) {
+  _Settings call(
+      {required Region region, required int limit, String? ipAddress}) {
     return _Settings(
       region: region,
       limit: limit,
+      ipAddress: ipAddress,
     );
   }
 
@@ -39,6 +41,7 @@ const $Settings = _$SettingsTearOff();
 mixin _$Settings {
   Region get region => throw _privateConstructorUsedError;
   int get limit => throw _privateConstructorUsedError;
+  String? get ipAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +53,7 @@ mixin _$Settings {
 abstract class $SettingsCopyWith<$Res> {
   factory $SettingsCopyWith(Settings value, $Res Function(Settings) then) =
       _$SettingsCopyWithImpl<$Res>;
-  $Res call({Region region, int limit});
+  $Res call({Region region, int limit, String? ipAddress});
 }
 
 /// @nodoc
@@ -65,6 +68,7 @@ class _$SettingsCopyWithImpl<$Res> implements $SettingsCopyWith<$Res> {
   $Res call({
     Object? region = freezed,
     Object? limit = freezed,
+    Object? ipAddress = freezed,
   }) {
     return _then(_value.copyWith(
       region: region == freezed
@@ -75,6 +79,10 @@ class _$SettingsCopyWithImpl<$Res> implements $SettingsCopyWith<$Res> {
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int,
+      ipAddress: ipAddress == freezed
+          ? _value.ipAddress
+          : ipAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -84,7 +92,7 @@ abstract class _$SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
   factory _$SettingsCopyWith(_Settings value, $Res Function(_Settings) then) =
       __$SettingsCopyWithImpl<$Res>;
   @override
-  $Res call({Region region, int limit});
+  $Res call({Region region, int limit, String? ipAddress});
 }
 
 /// @nodoc
@@ -100,6 +108,7 @@ class __$SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
   $Res call({
     Object? region = freezed,
     Object? limit = freezed,
+    Object? ipAddress = freezed,
   }) {
     return _then(_Settings(
       region: region == freezed
@@ -110,6 +119,10 @@ class __$SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int,
+      ipAddress: ipAddress == freezed
+          ? _value.ipAddress
+          : ipAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -117,7 +130,8 @@ class __$SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Settings implements _Settings {
-  const _$_Settings({required this.region, required this.limit});
+  const _$_Settings(
+      {required this.region, required this.limit, this.ipAddress});
 
   factory _$_Settings.fromJson(Map<String, dynamic> json) =>
       _$_$_SettingsFromJson(json);
@@ -126,10 +140,12 @@ class _$_Settings implements _Settings {
   final Region region;
   @override
   final int limit;
+  @override
+  final String? ipAddress;
 
   @override
   String toString() {
-    return 'Settings(region: $region, limit: $limit)';
+    return 'Settings(region: $region, limit: $limit, ipAddress: $ipAddress)';
   }
 
   @override
@@ -139,14 +155,18 @@ class _$_Settings implements _Settings {
             (identical(other.region, region) ||
                 const DeepCollectionEquality().equals(other.region, region)) &&
             (identical(other.limit, limit) ||
-                const DeepCollectionEquality().equals(other.limit, limit)));
+                const DeepCollectionEquality().equals(other.limit, limit)) &&
+            (identical(other.ipAddress, ipAddress) ||
+                const DeepCollectionEquality()
+                    .equals(other.ipAddress, ipAddress)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(region) ^
-      const DeepCollectionEquality().hash(limit);
+      const DeepCollectionEquality().hash(limit) ^
+      const DeepCollectionEquality().hash(ipAddress);
 
   @JsonKey(ignore: true)
   @override
@@ -160,8 +180,10 @@ class _$_Settings implements _Settings {
 }
 
 abstract class _Settings implements Settings {
-  const factory _Settings({required Region region, required int limit}) =
-      _$_Settings;
+  const factory _Settings(
+      {required Region region,
+      required int limit,
+      String? ipAddress}) = _$_Settings;
 
   factory _Settings.fromJson(Map<String, dynamic> json) = _$_Settings.fromJson;
 
@@ -169,6 +191,8 @@ abstract class _Settings implements Settings {
   Region get region => throw _privateConstructorUsedError;
   @override
   int get limit => throw _privateConstructorUsedError;
+  @override
+  String? get ipAddress => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SettingsCopyWith<_Settings> get copyWith =>
