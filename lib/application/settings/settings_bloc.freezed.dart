@@ -310,6 +310,10 @@ abstract class _SelectRegion implements SettingsEvent {
       throw _privateConstructorUsedError;
 }
 
+SettingsState _$SettingsStateFromJson(Map<String, dynamic> json) {
+  return _SettingsState.fromJson(json);
+}
+
 /// @nodoc
 class _$SettingsStateTearOff {
   const _$SettingsStateTearOff();
@@ -318,6 +322,10 @@ class _$SettingsStateTearOff {
     return _SettingsState(
       settings: settings,
     );
+  }
+
+  SettingsState fromJson(Map<String, Object> json) {
+    return SettingsState.fromJson(json);
   }
 }
 
@@ -328,6 +336,7 @@ const $SettingsState = _$SettingsStateTearOff();
 mixin _$SettingsState {
   Settings get settings => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SettingsStateCopyWith<SettingsState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -410,9 +419,12 @@ class __$SettingsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_SettingsState implements _SettingsState {
   const _$_SettingsState({required this.settings});
+
+  factory _$_SettingsState.fromJson(Map<String, dynamic> json) =>
+      _$_$_SettingsStateFromJson(json);
 
   @override
   final Settings settings;
@@ -439,10 +451,18 @@ class _$_SettingsState implements _SettingsState {
   @override
   _$SettingsStateCopyWith<_SettingsState> get copyWith =>
       __$SettingsStateCopyWithImpl<_SettingsState>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SettingsStateToJson(this);
+  }
 }
 
 abstract class _SettingsState implements SettingsState {
   const factory _SettingsState({required Settings settings}) = _$_SettingsState;
+
+  factory _SettingsState.fromJson(Map<String, dynamic> json) =
+      _$_SettingsState.fromJson;
 
   @override
   Settings get settings => throw _privateConstructorUsedError;

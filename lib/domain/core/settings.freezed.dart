@@ -12,6 +12,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Settings _$SettingsFromJson(Map<String, dynamic> json) {
+  return _Settings.fromJson(json);
+}
+
 /// @nodoc
 class _$SettingsTearOff {
   const _$SettingsTearOff();
@@ -21,6 +25,10 @@ class _$SettingsTearOff {
       region: region,
       limit: limit,
     );
+  }
+
+  Settings fromJson(Map<String, Object> json) {
+    return Settings.fromJson(json);
   }
 }
 
@@ -32,6 +40,7 @@ mixin _$Settings {
   Region get region => throw _privateConstructorUsedError;
   int get limit => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SettingsCopyWith<Settings> get copyWith =>
       throw _privateConstructorUsedError;
@@ -106,9 +115,12 @@ class __$SettingsCopyWithImpl<$Res> extends _$SettingsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Settings implements _Settings {
   const _$_Settings({required this.region, required this.limit});
+
+  factory _$_Settings.fromJson(Map<String, dynamic> json) =>
+      _$_$_SettingsFromJson(json);
 
   @override
   final Region region;
@@ -140,11 +152,18 @@ class _$_Settings implements _Settings {
   @override
   _$SettingsCopyWith<_Settings> get copyWith =>
       __$SettingsCopyWithImpl<_Settings>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SettingsToJson(this);
+  }
 }
 
 abstract class _Settings implements Settings {
   const factory _Settings({required Region region, required int limit}) =
       _$_Settings;
+
+  factory _Settings.fromJson(Map<String, dynamic> json) = _$_Settings.fromJson;
 
   @override
   Region get region => throw _privateConstructorUsedError;
