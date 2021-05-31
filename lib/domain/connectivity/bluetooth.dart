@@ -1,8 +1,8 @@
 class Bluetooth {
   String id;
-  String deviceNamep;
+  String deviceName;
   Bluetooth({
     required this.id,
-    required this.deviceNamep,
+    required this.deviceName,
   });
 }
