@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flux_software/application/bloc/settings_bloc.dart';
+import 'package:flux_software/application/settings/settings_bloc.dart';
 import 'package:flux_software/presentation/core/components/info_card.dart';
 import 'package:flux_software/presentation/core/components/progress_indicator.dart';
 import 'package:flux_software/util/region_money_calculator.dart';

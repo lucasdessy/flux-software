@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flux_software/application/bloc/settings_bloc.dart';
+import 'package:flux_software/application/settings/settings_bloc.dart';
 import 'package:flux_software/domain/core/region.dart';
 import 'package:flux_software/injection.dart';
 import 'package:flux_software/presentation/core/components/separator.dart';
