@@ -52,8 +52,7 @@ class ExpansionTileFlux extends StatefulWidget {
     this.collapsedTextColor,
     this.iconColor,
     this.collapsedIconColor,
-  })  : assert(initiallyExpanded != null),
-        assert(maintainState != null),
+  })  :
         assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
@@ -182,8 +181,6 @@ class _ExpansionTileFluxState extends State<ExpansionTileFlux>
       CurveTween(curve: Curves.easeOut);
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0.0, end: 0.5);
 
   final ColorTween _borderColorTween = ColorTween();
   final ColorTween _headerColorTween = ColorTween();
@@ -191,9 +188,7 @@ class _ExpansionTileFluxState extends State<ExpansionTileFlux>
   final ColorTween _backgroundColorTween = ColorTween();
 
   late AnimationController _controller;
-  late Animation<double> _iconTurns;
   late Animation<double> _heightFactor;
-  late Animation<Color?> _borderColor;
   late Animation<Color?> _headerColor;
   late Animation<Color?> _iconColor;
   late Animation<Color?> _backgroundColor;
@@ -205,8 +200,7 @@ class _ExpansionTileFluxState extends State<ExpansionTileFlux>
     super.initState();
     _controller = AnimationController(duration: _kExpand, vsync: this);
     _heightFactor = _controller.drive(_easeInTween);
-    _iconTurns = _controller.drive(_halfTween.chain(_easeInTween));
-    _borderColor = _controller.drive(_borderColorTween.chain(_easeOutTween));
+
     _headerColor = _controller.drive(_headerColorTween.chain(_easeInTween));
     _iconColor = _controller.drive(_iconColorTween.chain(_easeInTween));
     _backgroundColor =
