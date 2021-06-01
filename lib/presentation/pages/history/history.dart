@@ -22,7 +22,7 @@ class HistoryPage extends StatelessWidget {
               (i) => HistoryCard(
                 header: [
                   Text(
-                    '${state.history[i].month}',
+                    state.history[i].month,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Row(
@@ -49,7 +49,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${MoneyFormatter.format(state.history[i].totalPaid)}',
+                        MoneyFormatter.format(state.history[i].totalPaid),
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -66,7 +66,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${MoneyFormatter.format(state.history[i].semanalAvg)}',
+                        MoneyFormatter.format(state.history[i].semanalAvg),
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -81,7 +81,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${MoneyFormatter.format(state.history[i].diaryAvg)}',
+                        MoneyFormatter.format(state.history[i].diaryAvg),
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),

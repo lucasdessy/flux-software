@@ -5,15 +5,15 @@ class RegionMoneyCalculator {
   static double calculateValue(double liters, Region region) {
     final cubicMeters = liters / 1000;
     switch (region) {
-      case Region.Norte:
+      case Region.norte:
         return cubicMeters * 1.92;
-      case Region.Nordeste:
+      case Region.nordeste:
         return cubicMeters * 2.13;
-      case Region.Sudeste:
+      case Region.sudeste:
         return cubicMeters * 3.17;
-      case Region.Sul:
+      case Region.sul:
         return cubicMeters * 3.80;
-      case Region.CentroOeste:
+      case Region.centroOeste:
         return cubicMeters * 4.71;
     }
   }

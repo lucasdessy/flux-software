@@ -23,10 +23,10 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
       selectWifi: (e) async* {
         yield state.copyWith(loading: true);
         Wifi? selectedWifi;
-        var newList = state.wifi.map<Wifi>(
+        final newList = state.wifi.map<Wifi>(
           (element) {
             if (element == e.wifi) {
-              var newWifi = element.copyWith(password: e.password);
+              final newWifi = element.copyWith(password: e.password);
               selectedWifi = newWifi;
               return selectedWifi!;
             }

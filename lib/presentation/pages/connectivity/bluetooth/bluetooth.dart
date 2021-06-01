@@ -9,16 +9,16 @@ class BluetoothPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          getIt<ConnectivityBloc>()..add(ConnectivityEvent.listBluetooth()),
+      create: (context) => getIt<ConnectivityBloc>()
+        ..add(const ConnectivityEvent.listBluetooth()),
       child: BlocBuilder<ConnectivityBloc, ConnectivityState>(
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: Text('Dispositivos Bluetooth'),
+              title: const Text('Dispositivos Bluetooth'),
             ),
             body: state.loading
-                ? Center(
+                ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : SingleChildScrollView(
@@ -28,7 +28,7 @@ class BluetoothPage extends StatelessWidget {
                             (e) => ListTile(
                               title: Text(e.deviceName),
                               trailing: state.selectedBluetooth == e
-                                  ? Icon(Icons.check)
+                                  ? const Icon(Icons.check)
                                   : null,
                               onTap: () {
                                 context
@@ -40,16 +40,15 @@ class BluetoothPage extends StatelessWidget {
                           .toList(),
                     ),
                   ),
-            bottomNavigationBar: Container(
+            bottomNavigationBar: SizedBox(
               height: 60,
               child: ElevatedButton(
-                child: Text('Avançar'),
                 onPressed: state.selectedBluetooth == null
                     ? null
                     : () {
                         context
                             .read<ConnectivityBloc>()
-                            .add(ConnectivityEvent.listWifi());
+                            .add(const ConnectivityEvent.listWifi());
                         Routes.navigateTo(
                           context,
                           WifiPage(
@@ -58,6 +57,7 @@ class BluetoothPage extends StatelessWidget {
                           ),
                         );
                       },
+                child: const Text('Avançar'),
               ),
             ),
           );

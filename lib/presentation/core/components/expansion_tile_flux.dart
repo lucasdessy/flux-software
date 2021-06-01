@@ -52,8 +52,7 @@ class ExpansionTileFlux extends StatefulWidget {
     this.collapsedTextColor,
     this.iconColor,
     this.collapsedIconColor,
-  })  :
-        assert(
+  })  : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
           'are aligned in a column, not a row. Try to use another constant.',
@@ -289,7 +288,9 @@ class _ExpansionTileFluxState extends State<ExpansionTileFlux>
     final bool shouldRemoveChildren = closed && !widget.maintainState;
 
     final Widget result = Offstage(
+      offstage: closed,
       child: TickerMode(
+        enabled: !closed,
         child: Padding(
           padding: widget.childrenPadding ?? EdgeInsets.zero,
           child: Column(
@@ -298,9 +299,7 @@ class _ExpansionTileFluxState extends State<ExpansionTileFlux>
             children: widget.children,
           ),
         ),
-        enabled: !closed,
       ),
-      offstage: closed,
     );
 
     return AnimatedBuilder(

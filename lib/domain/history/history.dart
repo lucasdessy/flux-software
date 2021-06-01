@@ -4,9 +4,6 @@ part 'history.freezed.dart';
 
 @freezed
 class History with _$History {
-  History._();
-  double get semanalAvg => totalPaid / 4;
-  double get diaryAvg => totalPaid / 30;
   factory History({
     required String month,
     required double consumedLiters,
@@ -14,4 +11,8 @@ class History with _$History {
     required double consumedLitersOnMostConsumedDay,
     required int mostConsumedDay,
   }) = _History;
+  History._();
+
+  double get semanalAvg => totalPaid / 4;
+  double get diaryAvg => totalPaid / 30;
 }

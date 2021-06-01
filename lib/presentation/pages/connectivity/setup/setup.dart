@@ -39,48 +39,49 @@ class _SetupPageState extends State<SetupPage> {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: Text('Configuração do dispositivo'),
+              title: const Text('Configuração do dispositivo'),
             ),
             body: SingleChildScrollView(
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           'Dispositivo conectado:',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          '${state.selectedBluetooth!.deviceName}',
-                          style: TextStyle(fontWeight: FontWeight.w700),
+                          state.selectedBluetooth!.deviceName,
+                          style: const TextStyle(fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           'Rede wifi selecionada:',
                           style: TextStyle(fontSize: 17),
                         ),
                         Text(
-                          '${state.selectedWifi!.edid}',
-                          style: TextStyle(fontWeight: FontWeight.w700),
+                          state.selectedWifi!.edid,
+                          style: const TextStyle(fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
-                    Text(
+                    const Text(
                         'Digite o endereço IP que será mostrado no visor Flux'),
                     TextField(
                       controller: controller,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'IP Flux',
                         hintText: 'Exemplo: 192.168.0.143',
                       ),
@@ -90,10 +91,9 @@ class _SetupPageState extends State<SetupPage> {
               ),
             ),
             bottomNavigationBar: Builder(
-              builder: (context) => Container(
+              builder: (context) => SizedBox(
                 height: 60,
                 child: ElevatedButton(
-                  child: Text('Avançar'),
                   onPressed: canFinishSetup
                       ? () {
                           context.read<SettingsBloc>().add(
@@ -103,6 +103,7 @@ class _SetupPageState extends State<SetupPage> {
                               .popUntil((route) => route.isFirst);
                         }
                       : null,
+                  child: const Text('Avançar'),
                 ),
               ),
             ),

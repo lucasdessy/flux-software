@@ -12,7 +12,8 @@ class Settings with _$Settings {
       required int limit,
       String? ipAddress}) = _Settings;
 
-  factory Settings.initial() => Settings(region: Region.Sudeste, limit: 6000);
+  factory Settings.initial() =>
+      const Settings(region: Region.sudeste, limit: 6000);
 
   factory Settings.fromJson(Map<String, dynamic> json) =>
       _$SettingsFromJson(json);

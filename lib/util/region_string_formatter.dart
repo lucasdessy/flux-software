@@ -3,15 +3,15 @@ import 'package:flux_software/domain/core/region.dart';
 class RegionStringFormatter {
   static String format(Region region) {
     switch (region) {
-      case Region.Norte:
+      case Region.norte:
         return 'Norte';
-      case Region.Nordeste:
+      case Region.nordeste:
         return 'Nordeste';
-      case Region.Sudeste:
+      case Region.sudeste:
         return 'Sudeste';
-      case Region.Sul:
+      case Region.sul:
         return 'Sul';
-      case Region.CentroOeste:
+      case Region.centroOeste:
         return 'Centro-Oeste';
     }
   }

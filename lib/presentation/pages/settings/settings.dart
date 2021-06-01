@@ -17,7 +17,7 @@ class SettingsPage extends StatelessWidget {
         return Column(
           children: [
             ListTile(
-              title: Text('Definir limite'),
+              title: const Text('Definir limite'),
               trailing: Text(
                 '${state.settings.limit}',
                 style: Theme.of(context)
@@ -29,7 +29,7 @@ class SettingsPage extends StatelessWidget {
             ),
             FluxSeparator(),
             ListTile(
-              title: Text('Selecionar região'),
+              title: const Text('Selecionar região'),
               trailing: Text(
                 RegionStringFormatter.format(state.settings.region),
                 style: Theme.of(context)
@@ -43,7 +43,7 @@ class SettingsPage extends StatelessWidget {
             Expanded(child: Container()),
             FluxSeparator(),
             ListTile(
-              title: Text('Endereço IP'),
+              title: const Text('Endereço IP'),
               trailing: Text(
                 state.settings.ipAddress ?? 'Não definido',
                 style: Theme.of(context)
@@ -56,7 +56,7 @@ class SettingsPage extends StatelessWidget {
             ),
             FluxSeparator(),
             ListTile(
-              title: Text('Configurar novo dispositivo'),
+              title: const Text('Configurar novo dispositivo'),
               onTap: () => goToBluetoothPage(context),
             ),
             FluxSeparator(),
@@ -71,12 +71,12 @@ class SettingsPage extends StatelessWidget {
   }
 
   void showLimitsPopup(BuildContext context, int limit) {
-    var controller = TextEditingController(text: '$limit');
+    final controller = TextEditingController(text: '$limit');
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Definir Limite'),
+          title: const Text('Definir Limite'),
           content: TextField(
             controller: controller,
             keyboardType: TextInputType.number,
@@ -86,7 +86,7 @@ class SettingsPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancelar'),
+              child: const Text('Cancelar'),
             ),
             TextButton(
               onPressed: () {
@@ -99,7 +99,7 @@ class SettingsPage extends StatelessWidget {
 
                 Navigator.of(context).pop();
               },
-              child: Text('Ok'),
+              child: const Text('Ok'),
             ),
           ],
         );
@@ -109,12 +109,12 @@ class SettingsPage extends StatelessWidget {
 
   Future<void> showIpAddressPopup(
       BuildContext context, String? ipAddress) async {
-    var controller = TextEditingController(text: ipAddress);
+    final controller = TextEditingController(text: ipAddress);
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Endereço IP'),
+          title: const Text('Endereço IP'),
           content: Form(
             child: Builder(
               builder: (context) => TextFormField(
@@ -144,10 +144,10 @@ class SettingsPage extends StatelessWidget {
               onPressed: () {
                 context
                     .read<SettingsBloc>()
-                    .add(SettingsEvent.setIpAddress(null));
+                    .add(const SettingsEvent.setIpAddress(null));
                 Navigator.of(context).pop();
               },
-              child: Text('Limpar'),
+              child: const Text('Limpar'),
             ),
             TextButton(
               onPressed: () {
@@ -158,7 +158,7 @@ class SettingsPage extends StatelessWidget {
                 }
                 Navigator.of(context).pop();
               },
-              child: Text('Ok'),
+              child: const Text('Ok'),
             ),
           ],
         );
@@ -171,7 +171,7 @@ class SettingsPage extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Selecionar Região'),
+          title: const Text('Selecionar Região'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -195,7 +195,7 @@ class SettingsPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancelar'),
+              child: const Text('Cancelar'),
             ),
           ],
         );

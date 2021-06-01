@@ -30,12 +30,11 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
   Future<void> initAsync() async {
     await controller.animateTo(
         (widget.maxValue - widget.currentValue) / widget.maxValue,
-        duration: Duration(milliseconds: 1200),
+        duration: const Duration(milliseconds: 1200),
         curve: Curves.easeInOut);
     setState(() {
       doneAnimating = true;
     });
-    print('done animating.');
   }
 
   @override
@@ -44,7 +43,7 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
     super.dispose();
   }
 
-  listenToController() {
+  void listenToController() {
     setState(() {
       value = controller.value;
     });
@@ -58,8 +57,7 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
       child: Center(
         child: Stack(
           children: [
-            Align(
-              alignment: Alignment.center,
+            const Align(
               child: SizedBox(
                 height: 200,
                 width: 200,
@@ -70,7 +68,6 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
               ),
             ),
             Align(
-              alignment: Alignment.center,
               child: SizedBox(
                 height: 200,
                 width: 200,
@@ -83,7 +80,6 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
               ),
             ),
             Align(
-              alignment: Alignment.center,
               child: Text(
                 '${doneAnimating ? widget.currentValue.toInt() : (widget.maxValue - (value * widget.maxValue).toInt())}/${widget.maxValue}',
                 style: Theme.of(context)

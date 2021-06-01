@@ -48,9 +48,9 @@ K _$enumDecode<K, V>(
 }
 
 const _$RegionEnumMap = {
-  Region.Norte: 'Norte',
-  Region.Nordeste: 'Nordeste',
-  Region.Sudeste: 'Sudeste',
-  Region.Sul: 'Sul',
-  Region.CentroOeste: 'CentroOeste',
+  Region.norte: 'Norte',
+  Region.nordeste: 'Nordeste',
+  Region.sudeste: 'Sudeste',
+  Region.sul: 'Sul',
+  Region.centroOeste: 'CentroOeste',
 };

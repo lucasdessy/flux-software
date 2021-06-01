@@ -8,7 +8,7 @@ class ConnectivityState with _$ConnectivityState {
       required bool loading,
       Bluetooth? selectedBluetooth,
       Wifi? selectedWifi}) = _ConnectivityState;
-  factory ConnectivityState.initial() => ConnectivityState(
+  factory ConnectivityState.initial() => const ConnectivityState(
         bluetooth: [],
         wifi: [],
         loading: false,

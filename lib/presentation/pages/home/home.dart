@@ -25,30 +25,31 @@ class HomePage extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(16),
               ),
               color: Colors.grey.shade400),
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Builder(builder: (context) {
-                var state = context.watch<HistoryBloc>().state;
+                final state = context.watch<HistoryBloc>().state;
                 double total = 0;
-                for (var history in state.history) {
+                for (final history in state.history) {
                   total += history.totalPaid;
                 }
-                double mean = total / state.history.length;
+                final double mean = total / state.history.length;
                 return FluxInfoCard(
                   'Média Mensal R\$:',
-                  description: '${MoneyFormatter.format(mean)}',
+                  description: MoneyFormatter.format(mean),
                 );
               }),
               FluxInfoCard(
                 'Estimativa R\$:',
-                description:
-                    '${RegionMoneyCalculator.formatValue(context.watch<CounterBloc>().state.totalValue, context.watch<SettingsBloc>().state.settings.region)}',
+                description: RegionMoneyCalculator.formatValue(
+                    context.watch<CounterBloc>().state.totalValue,
+                    context.watch<SettingsBloc>().state.settings.region),
               ),
             ],
           ),

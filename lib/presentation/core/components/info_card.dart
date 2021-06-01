@@ -7,8 +7,8 @@ class FluxInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.only(left: 15, bottom: 8, top: 8, right: 15),
+      margin: const EdgeInsets.all(8),
+      padding: const EdgeInsets.only(left: 15, bottom: 8, top: 8, right: 15),
       width: double.infinity,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50), color: Colors.white),

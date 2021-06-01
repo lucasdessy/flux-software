@@ -17,8 +17,7 @@ part 'counter_state.dart';
 class CounterBloc extends Bloc<CounterEvent, CounterState> with HydratedMixin {
   CounterBloc(
     this._settingsBloc,
-  ) : super(CounterState()) {
-    print('alo');
+  ) : super(const CounterState()) {
     _subscription = _settingsBloc.stream.listen(
       handleSettingsBloc,
     );
@@ -26,8 +25,8 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> with HydratedMixin {
   }
 
   void handleSettingsBloc(SettingsState state) {
-    if ((state.settings.ipAddress != null)) {
-      add(CounterEvent.startCounting());
+    if (state.settings.ipAddress != null) {
+      add(const CounterEvent.startCounting());
     }
   }
 
@@ -40,12 +39,11 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> with HydratedMixin {
     yield* event.map<Stream<CounterState>>(
       startCounting: (e) async* {
         await Future.delayed(Duration(seconds: Random().nextInt(8) + 2));
-        print('agua contando...');
         yield state.copyWith(
           totalValue: state.totalValue + Random().nextDouble() * 2,
         );
         if (_settingsBloc.state.settings.ipAddress != null) {
-          add(CounterEvent.startCounting());
+          add(const CounterEvent.startCounting());
         }
       },
     );

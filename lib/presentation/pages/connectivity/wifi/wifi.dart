@@ -17,10 +17,10 @@ class WifiPage extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: Text('Redes Wifi'),
+              title: const Text('Redes Wifi'),
             ),
             body: state.loading
-                ? Center(
+                ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : SingleChildScrollView(
@@ -33,16 +33,17 @@ class WifiPage extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   if (state.selectedWifi == e)
-                                    Icon(Icons.check),
-                                  e.protected
-                                      ? Icon(Icons.lock_outlined)
-                                      : Icon(Icons.lock_open_outlined)
+                                    const Icon(Icons.check),
+                                  if (e.protected)
+                                    const Icon(Icons.lock_outlined)
+                                  else
+                                    const Icon(Icons.lock_open_outlined)
                                 ],
                               ),
                               subtitle:
                                   e.password != null && e.password!.length > 3
                                       ? Text(
-                                          '${e.password!.substring(0, 2)}${e.password!.substring(2, e.password!.length).replaceAll(RegExp(r'.'), '*')}',
+                                          '${e.password!.substring(0, 2)}${e.password!.substring(2, e.password!.length).replaceAll(RegExp('.'), '*')}',
                                         )
                                       : null,
                               onTap: () {
@@ -59,10 +60,9 @@ class WifiPage extends StatelessWidget {
                     ),
                   ),
             bottomNavigationBar: Builder(
-              builder: (context) => Container(
+              builder: (context) => SizedBox(
                 height: 60,
                 child: ElevatedButton(
-                  child: Text('Avançar'),
                   onPressed: state.selectedWifi == null
                       ? null
                       : () {
@@ -74,6 +74,7 @@ class WifiPage extends StatelessWidget {
                             ),
                           );
                         },
+                  child: const Text('Avançar'),
                 ),
               ),
             ),
@@ -84,12 +85,12 @@ class WifiPage extends StatelessWidget {
   }
 
   void showPasswordPopup(BuildContext bcontext, Wifi wifi) {
-    var controller = TextEditingController();
+    final controller = TextEditingController();
     showDialog(
       context: bcontext,
       builder: (context) {
         return AlertDialog(
-          title: Text('Digite a senha'),
+          title: const Text('Digite a senha'),
           content: TextField(
             controller: controller,
             obscureText: true,
@@ -99,7 +100,7 @@ class WifiPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancelar'),
+              child: const Text('Cancelar'),
             ),
             TextButton(
               onPressed: () {
@@ -111,7 +112,7 @@ class WifiPage extends StatelessWidget {
                     );
                 Navigator.of(context).pop();
               },
-              child: Text('Ok'),
+              child: const Text('Ok'),
             ),
           ],
         );

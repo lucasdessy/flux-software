@@ -12,7 +12,8 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => getIt<SettingsBloc>()..add(SettingsEvent.started()),
+          create: (_) =>
+              getIt<SettingsBloc>()..add(const SettingsEvent.started()),
         ),
         BlocProvider(
           create: (_) => getIt<CounterBloc>(),

@@ -1,7 +1,7 @@
 enum Region {
-  Norte,
-  Nordeste,
-  Sudeste,
-  Sul,
-  CentroOeste,
+  norte,
+  nordeste,
+  sudeste,
+  sul,
+  centroOeste,
 }

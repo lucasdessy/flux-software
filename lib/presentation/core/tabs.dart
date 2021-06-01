@@ -24,8 +24,8 @@ class Tabs extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Flux'),
-            bottom: TabBar(
+            title: const Text('Flux'),
+            bottom: const TabBar(
               tabs: [
                 Tab(
                   icon: Icon(
@@ -48,7 +48,7 @@ class Tabs extends StatelessWidget {
           body: TabBarView(
             children: [
               HomePage(),
-              HistoryPage(),
+              const HistoryPage(),
               SettingsPage(),
             ],
           ),
@@ -62,24 +62,28 @@ class Tabs extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Seja bem-vindo'),
+          title: const Text('Seja bem-vindo'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                context.read<SettingsBloc>().add(SettingsEvent.doneFirstRun());
+                context
+                    .read<SettingsBloc>()
+                    .add(const SettingsEvent.doneFirstRun());
               },
-              child: Text('Dispensar'),
+              child: const Text('Dispensar'),
             ),
             TextButton(
               onPressed: () {
                 Routes.navigateTo(context, BluetoothPage());
-                context.read<SettingsBloc>().add(SettingsEvent.doneFirstRun());
+                context
+                    .read<SettingsBloc>()
+                    .add(const SettingsEvent.doneFirstRun());
               },
-              child: Text('Ok'),
+              child: const Text('Ok'),
             ),
           ],
-          content: Text('Deseja adicionar uma placa Flux?'),
+          content: const Text('Deseja adicionar uma placa Flux?'),
         );
       },
     );
