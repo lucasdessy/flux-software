@@ -29,14 +29,10 @@ class HomePage extends StatelessWidget {
                 Radius.circular(16),
               ),
               color: Colors.grey.shade400),
-          // padding: EdgeInsets.only(
-          //   top: 10,
-          // ),
           margin: EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // FluxInfoCard('Total Consumido:'),
               Builder(builder: (context) {
                 var state = context.watch<HistoryBloc>().state;
                 double total = 0;
