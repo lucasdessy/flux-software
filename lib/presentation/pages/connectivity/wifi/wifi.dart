@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_software/application/connectivity/connectivity_bloc.dart';
 import 'package:flux_software/domain/connectivity/wifi.dart';
+import 'package:flux_software/presentation/pages/connectivity/setup/setup.dart';
+import 'package:flux_software/presentation/routes/routes.dart';
 
 class WifiPage extends StatelessWidget {
   final ConnectivityBloc connectivityBloc;
@@ -61,7 +63,17 @@ class WifiPage extends StatelessWidget {
                 height: 60,
                 child: ElevatedButton(
                   child: Text('Avançar'),
-                  onPressed: state.selectedWifi == null ? null : () {},
+                  onPressed: state.selectedWifi == null
+                      ? null
+                      : () {
+                          Routes.navigateTo(
+                            context,
+                            SetupPage(
+                              connectivityBloc:
+                                  BlocProvider.of<ConnectivityBloc>(context),
+                            ),
+                          );
+                        },
                 ),
               ),
             ),

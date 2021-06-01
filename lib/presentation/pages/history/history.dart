@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flux_software/domain/history/history.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flux_software/application/history/history_bloc.dart';
 import 'package:flux_software/presentation/core/components/history_card.dart';
 import 'package:flux_software/presentation/core/components/separator.dart';
 import 'package:flux_software/util/money_formatter.dart';
 
 class HistoryPage extends StatelessWidget {
-  final List<History> history;
-
-  const HistoryPage({Key? key, required this.history}) : super(key: key);
+  const HistoryPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return BlocBuilder<HistoryBloc, HistoryState>(
+      builder: (context, state) => ListView(
         shrinkWrap: true,
-        children: history
+        children: state.history
             .asMap()
             .keys
             .map<HistoryCard>(
               (i) => HistoryCard(
                 header: [
                   Text(
-                    '${history[i].month}',
+                    '${state.history[i].month}',
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Row(
@@ -32,7 +34,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${history[i].consumedLiters.toInt()}',
+                        '${state.history[i].consumedLiters.toInt()}',
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -47,7 +49,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${MoneyFormatter.format(history[i].totalPaid)}',
+                        '${MoneyFormatter.format(state.history[i].totalPaid)}',
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -64,7 +66,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${MoneyFormatter.format(history[i].semanalAvg)}',
+                        '${MoneyFormatter.format(state.history[i].semanalAvg)}',
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -79,7 +81,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${MoneyFormatter.format(history[i].diaryAvg)}',
+                        '${MoneyFormatter.format(state.history[i].diaryAvg)}',
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -95,7 +97,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${history[i].mostConsumedDay}',
+                        '${state.history[i].mostConsumedDay}',
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -110,7 +112,7 @@ class HistoryPage extends StatelessWidget {
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
                       Text(
-                        '${history[i].consumedLitersOnMostConsumedDay.toInt()}',
+                        '${state.history[i].consumedLitersOnMostConsumedDay.toInt()}',
                         style: Theme.of(context).textTheme.bodyText1?.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 14),
                       ),
@@ -119,6 +121,8 @@ class HistoryPage extends StatelessWidget {
                 ],
               ),
             )
-            .toList());
+            .toList(),
+      ),
+    );
   }
 }

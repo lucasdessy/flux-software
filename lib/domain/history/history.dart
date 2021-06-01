@@ -1,17 +1,17 @@
-class History {
-  final String month;
-  final double consumedLiters;
-  final double totalPaid;
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'history.freezed.dart';
+
+@freezed
+class History with _$History {
+  History._();
   double get semanalAvg => totalPaid / 4;
   double get diaryAvg => totalPaid / 30;
-  final int mostConsumedDay;
-  final double consumedLitersOnMostConsumedDay;
-
-  const History({
-    required this.month,
-    required this.consumedLiters,
-    required this.totalPaid,
-    required this.consumedLitersOnMostConsumedDay,
-    required this.mostConsumedDay,
-  });
+  factory History({
+    required String month,
+    required double consumedLiters,
+    required double totalPaid,
+    required double consumedLitersOnMostConsumedDay,
+    required int mostConsumedDay,
+  }) = _History;
 }

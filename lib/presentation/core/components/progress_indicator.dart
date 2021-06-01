@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FluxProgressIndicator extends StatefulWidget {
-  final int currentValue;
+  final double currentValue;
   final int maxValue;
   const FluxProgressIndicator({
     Key? key,
@@ -85,7 +85,7 @@ class _FluxProgressIndicatorState extends State<FluxProgressIndicator>
             Align(
               alignment: Alignment.center,
               child: Text(
-                '${doneAnimating ? widget.currentValue : (widget.maxValue - (value * widget.maxValue).toInt())}/${widget.maxValue}',
+                '${doneAnimating ? widget.currentValue.toInt() : (widget.maxValue - (value * widget.maxValue).toInt())}/${widget.maxValue}',
                 style: Theme.of(context)
                     .textTheme
                     .headline4

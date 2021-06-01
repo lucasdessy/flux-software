@@ -16,6 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SettingsEventTearOff {
   const _$SettingsEventTearOff();
 
+  _Started started() {
+    return const _Started();
+  }
+
+  _DoneFirstRun doneFirstRun() {
+    return const _DoneFirstRun();
+  }
+
   _DefineLimit defineLimit(int limit) {
     return _DefineLimit(
       limit,
@@ -42,6 +50,8 @@ const $SettingsEvent = _$SettingsEventTearOff();
 mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() doneFirstRun,
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
     required TResult Function(String? ipAddress) setIpAddress,
@@ -49,6 +59,8 @@ mixin _$SettingsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? doneFirstRun,
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
     TResult Function(String? ipAddress)? setIpAddress,
@@ -57,6 +69,8 @@ mixin _$SettingsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DoneFirstRun value) doneFirstRun,
     required TResult Function(_DefineLimit value) defineLimit,
     required TResult Function(_SelectRegion value) selectRegion,
     required TResult Function(_SetIpAddress value) setIpAddress,
@@ -64,6 +78,8 @@ mixin _$SettingsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DoneFirstRun value)? doneFirstRun,
     TResult Function(_DefineLimit value)? defineLimit,
     TResult Function(_SelectRegion value)? selectRegion,
     TResult Function(_SetIpAddress value)? setIpAddress,
@@ -87,6 +103,199 @@ class _$SettingsEventCopyWithImpl<$Res>
   final SettingsEvent _value;
   // ignore: unused_field
   final $Res Function(SettingsEvent) _then;
+}
+
+/// @nodoc
+abstract class _$StartedCopyWith<$Res> {
+  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
+      __$StartedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$StartedCopyWithImpl<$Res> extends _$SettingsEventCopyWithImpl<$Res>
+    implements _$StartedCopyWith<$Res> {
+  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
+      : super(_value, (v) => _then(v as _Started));
+
+  @override
+  _Started get _value => super._value as _Started;
+}
+
+/// @nodoc
+
+class _$_Started implements _Started {
+  const _$_Started();
+
+  @override
+  String toString() {
+    return 'SettingsEvent.started()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Started);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() doneFirstRun,
+    required TResult Function(int limit) defineLimit,
+    required TResult Function(Region region) selectRegion,
+    required TResult Function(String? ipAddress) setIpAddress,
+  }) {
+    return started();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? doneFirstRun,
+    TResult Function(int limit)? defineLimit,
+    TResult Function(Region region)? selectRegion,
+    TResult Function(String? ipAddress)? setIpAddress,
+    required TResult orElse(),
+  }) {
+    if (started != null) {
+      return started();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DoneFirstRun value) doneFirstRun,
+    required TResult Function(_DefineLimit value) defineLimit,
+    required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_SetIpAddress value) setIpAddress,
+  }) {
+    return started(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DoneFirstRun value)? doneFirstRun,
+    TResult Function(_DefineLimit value)? defineLimit,
+    TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_SetIpAddress value)? setIpAddress,
+    required TResult orElse(),
+  }) {
+    if (started != null) {
+      return started(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Started implements SettingsEvent {
+  const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$DoneFirstRunCopyWith<$Res> {
+  factory _$DoneFirstRunCopyWith(
+          _DoneFirstRun value, $Res Function(_DoneFirstRun) then) =
+      __$DoneFirstRunCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$DoneFirstRunCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res>
+    implements _$DoneFirstRunCopyWith<$Res> {
+  __$DoneFirstRunCopyWithImpl(
+      _DoneFirstRun _value, $Res Function(_DoneFirstRun) _then)
+      : super(_value, (v) => _then(v as _DoneFirstRun));
+
+  @override
+  _DoneFirstRun get _value => super._value as _DoneFirstRun;
+}
+
+/// @nodoc
+
+class _$_DoneFirstRun implements _DoneFirstRun {
+  const _$_DoneFirstRun();
+
+  @override
+  String toString() {
+    return 'SettingsEvent.doneFirstRun()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _DoneFirstRun);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() doneFirstRun,
+    required TResult Function(int limit) defineLimit,
+    required TResult Function(Region region) selectRegion,
+    required TResult Function(String? ipAddress) setIpAddress,
+  }) {
+    return doneFirstRun();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? doneFirstRun,
+    TResult Function(int limit)? defineLimit,
+    TResult Function(Region region)? selectRegion,
+    TResult Function(String? ipAddress)? setIpAddress,
+    required TResult orElse(),
+  }) {
+    if (doneFirstRun != null) {
+      return doneFirstRun();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DoneFirstRun value) doneFirstRun,
+    required TResult Function(_DefineLimit value) defineLimit,
+    required TResult Function(_SelectRegion value) selectRegion,
+    required TResult Function(_SetIpAddress value) setIpAddress,
+  }) {
+    return doneFirstRun(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DoneFirstRun value)? doneFirstRun,
+    TResult Function(_DefineLimit value)? defineLimit,
+    TResult Function(_SelectRegion value)? selectRegion,
+    TResult Function(_SetIpAddress value)? setIpAddress,
+    required TResult orElse(),
+  }) {
+    if (doneFirstRun != null) {
+      return doneFirstRun(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DoneFirstRun implements SettingsEvent {
+  const factory _DoneFirstRun() = _$_DoneFirstRun;
 }
 
 /// @nodoc
@@ -153,6 +362,8 @@ class _$_DefineLimit implements _DefineLimit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() doneFirstRun,
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
     required TResult Function(String? ipAddress) setIpAddress,
@@ -163,6 +374,8 @@ class _$_DefineLimit implements _DefineLimit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? doneFirstRun,
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
     TResult Function(String? ipAddress)? setIpAddress,
@@ -177,6 +390,8 @@ class _$_DefineLimit implements _DefineLimit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DoneFirstRun value) doneFirstRun,
     required TResult Function(_DefineLimit value) defineLimit,
     required TResult Function(_SelectRegion value) selectRegion,
     required TResult Function(_SetIpAddress value) setIpAddress,
@@ -187,6 +402,8 @@ class _$_DefineLimit implements _DefineLimit {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DoneFirstRun value)? doneFirstRun,
     TResult Function(_DefineLimit value)? defineLimit,
     TResult Function(_SelectRegion value)? selectRegion,
     TResult Function(_SetIpAddress value)? setIpAddress,
@@ -273,6 +490,8 @@ class _$_SelectRegion implements _SelectRegion {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() doneFirstRun,
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
     required TResult Function(String? ipAddress) setIpAddress,
@@ -283,6 +502,8 @@ class _$_SelectRegion implements _SelectRegion {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? doneFirstRun,
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
     TResult Function(String? ipAddress)? setIpAddress,
@@ -297,6 +518,8 @@ class _$_SelectRegion implements _SelectRegion {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DoneFirstRun value) doneFirstRun,
     required TResult Function(_DefineLimit value) defineLimit,
     required TResult Function(_SelectRegion value) selectRegion,
     required TResult Function(_SetIpAddress value) setIpAddress,
@@ -307,6 +530,8 @@ class _$_SelectRegion implements _SelectRegion {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DoneFirstRun value)? doneFirstRun,
     TResult Function(_DefineLimit value)? defineLimit,
     TResult Function(_SelectRegion value)? selectRegion,
     TResult Function(_SetIpAddress value)? setIpAddress,
@@ -394,6 +619,8 @@ class _$_SetIpAddress implements _SetIpAddress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() doneFirstRun,
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
     required TResult Function(String? ipAddress) setIpAddress,
@@ -404,6 +631,8 @@ class _$_SetIpAddress implements _SetIpAddress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? doneFirstRun,
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
     TResult Function(String? ipAddress)? setIpAddress,
@@ -418,6 +647,8 @@ class _$_SetIpAddress implements _SetIpAddress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_DoneFirstRun value) doneFirstRun,
     required TResult Function(_DefineLimit value) defineLimit,
     required TResult Function(_SelectRegion value) selectRegion,
     required TResult Function(_SetIpAddress value) setIpAddress,
@@ -428,6 +659,8 @@ class _$_SetIpAddress implements _SetIpAddress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_DoneFirstRun value)? doneFirstRun,
     TResult Function(_DefineLimit value)? defineLimit,
     TResult Function(_SelectRegion value)? selectRegion,
     TResult Function(_SetIpAddress value)? setIpAddress,
@@ -457,9 +690,10 @@ SettingsState _$SettingsStateFromJson(Map<String, dynamic> json) {
 class _$SettingsStateTearOff {
   const _$SettingsStateTearOff();
 
-  _SettingsState call({required Settings settings}) {
+  _SettingsState call({required Settings settings, required bool firstRun}) {
     return _SettingsState(
       settings: settings,
+      firstRun: firstRun,
     );
   }
 
@@ -474,6 +708,7 @@ const $SettingsState = _$SettingsStateTearOff();
 /// @nodoc
 mixin _$SettingsState {
   Settings get settings => throw _privateConstructorUsedError;
+  bool get firstRun => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -486,7 +721,7 @@ abstract class $SettingsStateCopyWith<$Res> {
   factory $SettingsStateCopyWith(
           SettingsState value, $Res Function(SettingsState) then) =
       _$SettingsStateCopyWithImpl<$Res>;
-  $Res call({Settings settings});
+  $Res call({Settings settings, bool firstRun});
 
   $SettingsCopyWith<$Res> get settings;
 }
@@ -503,12 +738,17 @@ class _$SettingsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? settings = freezed,
+    Object? firstRun = freezed,
   }) {
     return _then(_value.copyWith(
       settings: settings == freezed
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as Settings,
+      firstRun: firstRun == freezed
+          ? _value.firstRun
+          : firstRun // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -527,7 +767,7 @@ abstract class _$SettingsStateCopyWith<$Res>
           _SettingsState value, $Res Function(_SettingsState) then) =
       __$SettingsStateCopyWithImpl<$Res>;
   @override
-  $Res call({Settings settings});
+  $Res call({Settings settings, bool firstRun});
 
   @override
   $SettingsCopyWith<$Res> get settings;
@@ -547,12 +787,17 @@ class __$SettingsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? settings = freezed,
+    Object? firstRun = freezed,
   }) {
     return _then(_SettingsState(
       settings: settings == freezed
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as Settings,
+      firstRun: firstRun == freezed
+          ? _value.firstRun
+          : firstRun // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -560,17 +805,19 @@ class __$SettingsStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SettingsState implements _SettingsState {
-  const _$_SettingsState({required this.settings});
+  const _$_SettingsState({required this.settings, required this.firstRun});
 
   factory _$_SettingsState.fromJson(Map<String, dynamic> json) =>
       _$_$_SettingsStateFromJson(json);
 
   @override
   final Settings settings;
+  @override
+  final bool firstRun;
 
   @override
   String toString() {
-    return 'SettingsState(settings: $settings)';
+    return 'SettingsState(settings: $settings, firstRun: $firstRun)';
   }
 
   @override
@@ -579,12 +826,17 @@ class _$_SettingsState implements _SettingsState {
         (other is _SettingsState &&
             (identical(other.settings, settings) ||
                 const DeepCollectionEquality()
-                    .equals(other.settings, settings)));
+                    .equals(other.settings, settings)) &&
+            (identical(other.firstRun, firstRun) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstRun, firstRun)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(settings);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(settings) ^
+      const DeepCollectionEquality().hash(firstRun);
 
   @JsonKey(ignore: true)
   @override
@@ -598,13 +850,16 @@ class _$_SettingsState implements _SettingsState {
 }
 
 abstract class _SettingsState implements SettingsState {
-  const factory _SettingsState({required Settings settings}) = _$_SettingsState;
+  const factory _SettingsState(
+      {required Settings settings, required bool firstRun}) = _$_SettingsState;
 
   factory _SettingsState.fromJson(Map<String, dynamic> json) =
       _$_SettingsState.fromJson;
 
   @override
   Settings get settings => throw _privateConstructorUsedError;
+  @override
+  bool get firstRun => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SettingsStateCopyWith<_SettingsState> get copyWith =>

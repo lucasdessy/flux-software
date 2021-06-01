@@ -8,9 +8,10 @@ import 'package:path_provider/path_provider.dart';
 
 void main() async {
   await initializeDateFormatting('pt_BR');
-  configureInjection(Environment.prod);
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
+  configureInjection(Environment.prod);
+
   runApp(App());
 }

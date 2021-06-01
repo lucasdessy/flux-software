@@ -42,11 +42,11 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
       },
       listBluetooth: (e) async* {
         yield state.copyWith(loading: true);
-        // await Future.delayed(
-        //   Duration(
-        //     seconds: Random().nextInt(4) + 1,
-        //   ),
-        // );
+        await Future.delayed(
+          Duration(
+            seconds: Random().nextInt(4) + 1,
+          ),
+        );
         yield state.copyWith(
           loading: false,
           bluetooth: [
@@ -61,11 +61,11 @@ class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
       },
       listWifi: (e) async* {
         yield state.copyWith(loading: true);
-        // await Future.delayed(
-        //   Duration(
-        //     seconds: Random().nextInt(4) + 1,
-        //   ),
-        // );
+        await Future.delayed(
+          Duration(
+            seconds: Random().nextInt(4) + 1,
+          ),
+        );
         yield state.copyWith(
           loading: false,
           wifi: [

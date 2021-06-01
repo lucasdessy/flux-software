@@ -115,11 +115,29 @@ class SettingsPage extends StatelessWidget {
       builder: (context) {
         return AlertDialog(
           title: Text('Endereço IP'),
-          content: TextField(
-            controller: controller,
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-                hintText: controller.text.isEmpty ? 'Não definido' : null),
+          content: Form(
+            child: Builder(
+              builder: (context) => TextFormField(
+                controller: controller,
+                onChanged: (text) {
+                  Form.of(context)?.validate();
+                },
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value?.contains(
+                        RegExp(
+                          r'^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$',
+                        ),
+                      ) ??
+                      false) {
+                    return null;
+                  }
+                  return 'Digite um endereço ip válido!';
+                },
+                decoration: InputDecoration(
+                    hintText: controller.text.isEmpty ? 'Não definido' : null),
+              ),
+            ),
           ),
           actions: [
             TextButton(

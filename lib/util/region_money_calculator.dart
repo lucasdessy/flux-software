@@ -19,7 +19,7 @@ class RegionMoneyCalculator {
   }
 
   static String formatValue(double liters, Region region) {
-    return NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$')
+    return NumberFormat.currency(locale: 'pt_BR', symbol: '')
         .format(calculateValue(liters, region));
   }
 }

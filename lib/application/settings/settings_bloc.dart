@@ -22,6 +22,12 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState>
     SettingsEvent event,
   ) async* {
     yield* event.map<Stream<SettingsState>>(
+      started: (e) async* {
+        yield state.copyWith(); // Not good approach...
+      },
+      doneFirstRun: (e) async* {
+        yield state.copyWith(firstRun: true);
+      },
       defineLimit: (e) async* {
         yield state.copyWith(
           settings: state.settings.copyWith(limit: e.limit),
