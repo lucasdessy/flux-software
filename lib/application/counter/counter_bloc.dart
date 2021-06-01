@@ -38,9 +38,9 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> with HydratedMixin {
   ) async* {
     yield* event.map<Stream<CounterState>>(
       startCounting: (e) async* {
-        await Future.delayed(Duration(seconds: Random().nextInt(8) + 2));
+        await Future.delayed(Duration(seconds: Random().nextInt(13) + 2));
         yield state.copyWith(
-          totalValue: state.totalValue + Random().nextDouble() * 2,
+          totalValue: state.totalValue + Random().nextDouble(),
         );
         if (_settingsBloc.state.settings.ipAddress != null) {
           add(const CounterEvent.startCounting());
