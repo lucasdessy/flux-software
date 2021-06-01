@@ -28,7 +28,7 @@ class _$SettingsEventTearOff {
     );
   }
 
-  _SetIpAddress setIpAddress(String ipAddress) {
+  _SetIpAddress setIpAddress(String? ipAddress) {
     return _SetIpAddress(
       ipAddress,
     );
@@ -44,14 +44,14 @@ mixin _$SettingsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
-    required TResult Function(String ipAddress) setIpAddress,
+    required TResult Function(String? ipAddress) setIpAddress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
-    TResult Function(String ipAddress)? setIpAddress,
+    TResult Function(String? ipAddress)? setIpAddress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,7 +155,7 @@ class _$_DefineLimit implements _DefineLimit {
   TResult when<TResult extends Object?>({
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
-    required TResult Function(String ipAddress) setIpAddress,
+    required TResult Function(String? ipAddress) setIpAddress,
   }) {
     return defineLimit(limit);
   }
@@ -165,7 +165,7 @@ class _$_DefineLimit implements _DefineLimit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
-    TResult Function(String ipAddress)? setIpAddress,
+    TResult Function(String? ipAddress)? setIpAddress,
     required TResult orElse(),
   }) {
     if (defineLimit != null) {
@@ -275,7 +275,7 @@ class _$_SelectRegion implements _SelectRegion {
   TResult when<TResult extends Object?>({
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
-    required TResult Function(String ipAddress) setIpAddress,
+    required TResult Function(String? ipAddress) setIpAddress,
   }) {
     return selectRegion(region);
   }
@@ -285,7 +285,7 @@ class _$_SelectRegion implements _SelectRegion {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
-    TResult Function(String ipAddress)? setIpAddress,
+    TResult Function(String? ipAddress)? setIpAddress,
     required TResult orElse(),
   }) {
     if (selectRegion != null) {
@@ -333,7 +333,7 @@ abstract class _$SetIpAddressCopyWith<$Res> {
   factory _$SetIpAddressCopyWith(
           _SetIpAddress value, $Res Function(_SetIpAddress) then) =
       __$SetIpAddressCopyWithImpl<$Res>;
-  $Res call({String ipAddress});
+  $Res call({String? ipAddress});
 }
 
 /// @nodoc
@@ -355,7 +355,7 @@ class __$SetIpAddressCopyWithImpl<$Res>
       ipAddress == freezed
           ? _value.ipAddress
           : ipAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -366,7 +366,7 @@ class _$_SetIpAddress implements _SetIpAddress {
   const _$_SetIpAddress(this.ipAddress);
 
   @override
-  final String ipAddress;
+  final String? ipAddress;
 
   @override
   String toString() {
@@ -396,7 +396,7 @@ class _$_SetIpAddress implements _SetIpAddress {
   TResult when<TResult extends Object?>({
     required TResult Function(int limit) defineLimit,
     required TResult Function(Region region) selectRegion,
-    required TResult Function(String ipAddress) setIpAddress,
+    required TResult Function(String? ipAddress) setIpAddress,
   }) {
     return setIpAddress(ipAddress);
   }
@@ -406,7 +406,7 @@ class _$_SetIpAddress implements _SetIpAddress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int limit)? defineLimit,
     TResult Function(Region region)? selectRegion,
-    TResult Function(String ipAddress)? setIpAddress,
+    TResult Function(String? ipAddress)? setIpAddress,
     required TResult orElse(),
   }) {
     if (setIpAddress != null) {
@@ -441,9 +441,9 @@ class _$_SetIpAddress implements _SetIpAddress {
 }
 
 abstract class _SetIpAddress implements SettingsEvent {
-  const factory _SetIpAddress(String ipAddress) = _$_SetIpAddress;
+  const factory _SetIpAddress(String? ipAddress) = _$_SetIpAddress;
 
-  String get ipAddress => throw _privateConstructorUsedError;
+  String? get ipAddress => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SetIpAddressCopyWith<_SetIpAddress> get copyWith =>
       throw _privateConstructorUsedError;

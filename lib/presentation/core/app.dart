@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_software/application/settings/settings_bloc.dart';
 import 'package:flux_software/injection.dart';
-import 'package:flux_software/presentation/routes/router.dart';
+import 'package:flux_software/presentation/core/tabs.dart';
 
 class App extends StatelessWidget {
   @override
@@ -14,9 +14,8 @@ class App extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: Routes.HOME,
-        routes: AppRouter.routes,
-        // home: Tabs(),
+        debugShowCheckedModeBanner: false,
+        home: Tabs(),
       ),
     );
   }

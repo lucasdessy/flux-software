@@ -4,7 +4,8 @@ import 'package:flux_software/application/settings/settings_bloc.dart';
 import 'package:flux_software/domain/core/region.dart';
 import 'package:flux_software/injection.dart';
 import 'package:flux_software/presentation/core/components/separator.dart';
-import 'package:flux_software/presentation/routes/router.dart';
+import 'package:flux_software/presentation/pages/connectivity/bluetooth/bluetooth.dart';
+import 'package:flux_software/presentation/routes/routes.dart';
 import 'package:flux_software/util/region_string_formatter.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -66,8 +67,7 @@ class SettingsPage extends StatelessWidget {
   }
 
   void goToBluetoothPage(BuildContext context) {
-    print('indo');
-    Navigator.of(context).pushNamed(Routes.BLUETOOTH);
+    Routes.navigateTo(context, BluetoothPage());
   }
 
   void showLimitsPopup(BuildContext context, int limit) {
@@ -118,20 +118,26 @@ class SettingsPage extends StatelessWidget {
           content: TextField(
             controller: controller,
             keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+                hintText: controller.text.isEmpty ? 'Não definido' : null),
           ),
           actions: [
             TextButton(
               onPressed: () {
+                context
+                    .read<SettingsBloc>()
+                    .add(SettingsEvent.setIpAddress(null));
                 Navigator.of(context).pop();
               },
-              child: Text('Cancelar'),
+              child: Text('Limpar'),
             ),
             TextButton(
               onPressed: () {
-                context
-                    .read<SettingsBloc>()
-                    .add(SettingsEvent.setIpAddress(controller.text));
-
+                if (controller.text.isNotEmpty) {
+                  context.read<SettingsBloc>().add(
+                        SettingsEvent.setIpAddress(controller.text),
+                      );
+                }
                 Navigator.of(context).pop();
               },
               child: Text('Ok'),

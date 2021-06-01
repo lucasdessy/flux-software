@@ -1,7 +1,10 @@
-part of 'router.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Routes {
-  static const HOME = '/';
-  static const BLUETOOTH = '/bluetooth';
-  static const WIFI = '/wifi';
+  static navigateTo(BuildContext context, Widget page) {
+    return Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => page),
+    );
+  }
 }
